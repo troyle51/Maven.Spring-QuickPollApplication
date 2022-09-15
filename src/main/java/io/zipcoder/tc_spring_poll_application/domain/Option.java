@@ -10,15 +10,15 @@ public class Option {
     @Id
     @GeneratedValue
     @Column(name = "OPTION_ID")
-    private long id;
+    private Long id;
     @Column(name = "OPTION_VALUE")
     private String value;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
