@@ -7,6 +7,10 @@ public class ErrorDetail {
     private long timeStamp;
     private String developerMessage;
 
+    public ErrorDetail(String localName, int serverPort, String localizedMessage, long time, String message) {
+
+    }
+
     public String getTitle() {
         return title;
     }
