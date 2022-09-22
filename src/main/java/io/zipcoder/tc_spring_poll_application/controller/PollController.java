@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 
 @RestController
@@ -39,14 +40,14 @@ public class PollController {
         poll = pollRepository.save(poll);
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
-
+    @Valid
     @RequestMapping(value="/polls/{pollId}", method=RequestMethod.GET)
     public ResponseEntity<?> getPoll(@PathVariable Long pollId) {
         verifyPoll(pollId);
         Poll p = pollRepository.findOne(pollId);
         return new ResponseEntity<> (p, HttpStatus.OK);
     }
-
+    @Valid
     @RequestMapping(value="/polls/{pollId}", method=RequestMethod.PUT)
     public ResponseEntity<?> updatePoll(@RequestBody Poll poll, @PathVariable Long pollId) {
         // Save the entity
