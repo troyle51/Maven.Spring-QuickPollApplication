@@ -1,11 +1,15 @@
 package dtos.error;
 
+import java.util.List;
+import java.util.Map;
+
 public class ErrorDetail {
     private String title;
     private int status;
     private String detail;
     private long timeStamp;
     private String developerMessage;
+    private Map<String, List<ValidationError>> errors;
 
     public ErrorDetail(String localName, int serverPort, String localizedMessage, long time, String message) {
 
@@ -49,5 +53,13 @@ public class ErrorDetail {
 
     public void setDeveloperMessage(String developerMessage) {
         this.developerMessage = developerMessage;
+    }
+
+    public Map<String, List<ValidationError>> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(Map<String, List<ValidationError>> errors) {
+        this.errors = errors;
     }
 }
